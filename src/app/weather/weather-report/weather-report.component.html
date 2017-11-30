@@ -22,7 +22,7 @@
     <div class="col col-lg-6 col-sm-12">
 
       <div *ngIf="weather">
-        <app-icon [icon]="weather.icon"></app-icon>
+        <h2>Your current weather conditions: <app-icon [icon]="weather.icon"></app-icon></h2>
         <ul class="list-group">
           <li class="list-group-item">{{weather.city}}</li>
           <li class="list-group-item">{{weather.lat}}, {{weather.lon}}</li>
