@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { WeatherRoutingModule } from './weather-routing.module';
 import { WeatherComponent } from './weather.component';
 import { WeatherService } from './shared/weather.service';
+import { IconComponent } from './icon/icon.component';
 
 @NgModule({
   imports: [
@@ -14,7 +15,7 @@ import { WeatherService } from './shared/weather.service';
     HttpClientModule,
     WeatherRoutingModule
   ],
-  declarations: [WeatherComponent],
+  declarations: [WeatherComponent, IconComponent],
   providers: [WeatherService]
 })
 export class WeatherModule { }
