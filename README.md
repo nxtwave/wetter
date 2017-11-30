@@ -2,26 +2,65 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.0.
 
-## Development server
+## Install and Run
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Clone the repository to your local drive
+``` 
+git clone https://github.com/nxtwave/wetter.git 
+```
 
-## Code scaffolding
+### Install the dependencies
+``` 
+cd wetter
+npm install
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Install your Open Weather Map API Key
+export OPEN_WEATHER_KEY=<insert your key here>
 
-## Build
+### Start API Web Server
+It will serve data api requests on port 3000
+``` 
+node server.js
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+### Build and Start Application Server
+It will serve application resources on port 4200
+``` 
+npm start
+```
 
-## Running unit tests
+### Browse to Application
+Run the application on your browser at the address: localhost:4200
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Application Organization
 
-## Running end-to-end tests
+### Data Services
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+* The weather source data is from the Open Weather API. See https://openweathermap.org/api
+* The application uses a proxy service to connect to Open Weather API. It is hosted
+on NodeJS and ExpressJS. See endpoints at /server/api
+* The proxy service avoids CORS issues of calling services on a separate domain.
+* The local webpack server uses a proxy configuration, in proxy.conf.json, to route calls for /api to
+port 3000. In production the proxy is not necessary unless the API is running as
+a separate application
+* The Angular service calls /api/weather to retrieve the data, and the proxy forwards
+the request to Open Weather and returns the results as an Observable object to 
+the component.
+* The Angular service is contained within the Weather module, and it is injected
+into the WeatherReport component.
 
-## Further help
+### Modules
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+* There are three feature modules: Home, About, and Weather. The Weather module is
+the only essential module; the others are included as scaffolding for future expansion
+of a multi-module application.
+* The application using Angular routing to navigate between the feature modules.
+* The top level application module contains the navigation menu.
+* The top level application module and each feature module contains a routing configuration.
+
+### CSS Framework
+
+* The application uses Bootstrap Version 4.
+* Bootstrap is installed using npm install, and it is configured into the 
+application through the cli.angular.json file.
