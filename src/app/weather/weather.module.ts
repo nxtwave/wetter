@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
-import { WeatherRoutingModule } from './weather-routing.module';
+import { WeatherRoutingModule } from './weather.routing';
 import { WeatherReportComponent } from './weather-report/weather-report.component';
 import { WeatherService } from './shared/weather.service';
 import { IconComponent } from './icon/icon.component';

@@ -17,15 +17,19 @@ export class WeatherReportComponent implements OnInit {
   zipcode: string;
 
   /**
-   * Weather weather-report
+   * Weather report
    */
-  weather: any;
+  report: any;
 
   /**
    * The error message (if exists)
    */
   error: string;
 
+  /**
+   * Component constructor
+   * @param {WeatherService} service the injected data service
+   */
   constructor(private service: WeatherService) { }
 
   ngOnInit() {}
@@ -38,11 +42,9 @@ export class WeatherReportComponent implements OnInit {
     console.log('zipcode', zipcode);
     this.service.getWeather(zipcode).subscribe( (result: any) => {
 
-      console.log('result', result);
-
       if (result.name !== undefined) {
 
-        this.weather = {
+        this.report = {
           lat: result.coord.lat,
           lon: result.coord.lon,
           city: result.name,
@@ -54,21 +56,17 @@ export class WeatherReportComponent implements OnInit {
         this.error = undefined;
 
       } else {
-
         this.error = `City is not found for zipcode ${zipcode}`;
-        this.weather = undefined;
-
+        this.report = undefined;
       }
 
-
-      console.log('weather', this.weather);
     });
 
   }
 
 }
 
-export interface Weather {
+export interface Report {
   lat: number;
   lon: number;
   city: string;

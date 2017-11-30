@@ -8,6 +8,10 @@ import { Router} from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
+  /**
+   * Component constructor
+   * @param {Router} router the router instance
+   */
   constructor(private router: Router) { }
 
   ngOnInit() {}

@@ -21,13 +21,13 @@
   <div class="row" style="margin-top: 25px">
     <div class="col col-lg-6 col-sm-12">
 
-      <div *ngIf="weather">
-        <h2>Your current weather conditions: <app-icon [icon]="weather.icon"></app-icon></h2>
+      <div *ngIf="report">
+        <h2>Your current weather conditions: <app-icon [icon]="report.icon"></app-icon></h2>
         <ul class="list-group">
-          <li class="list-group-item">{{weather.city}}</li>
-          <li class="list-group-item">{{weather.lat}}, {{weather.lon}}</li>
-          <li class="list-group-item">{{weather.description}}</li>
-          <li class="list-group-item">{{weather.temperature}} F</li>
+          <li class="list-group-item">{{report.city}}</li>
+          <li class="list-group-item">{{report.lat}}, {{report.lon}}</li>
+          <li class="list-group-item">{{report.description}}</li>
+          <li class="list-group-item">{{report.temperature}} F</li>
         </ul>
       </div>
 
