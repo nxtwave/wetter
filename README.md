@@ -16,7 +16,11 @@ npm install
 ```
 
 ### Install your Open Weather Map API Key
+You will need to install your own registered API key from Open Weather.
+
+```
 export OPEN_WEATHER_KEY=<insert your key here>
+```
 
 ### Start API Web Server
 It will serve data api requests on port 3000
@@ -41,6 +45,8 @@ Run the application on your browser at the address: localhost:4200
 * The application uses a proxy service to connect to Open Weather API. It is hosted
 on NodeJS and ExpressJS. See endpoints at /server/api
 * The proxy service avoids CORS issues of calling services on a separate domain.
+* The proxy service can also be adapted for local security policies, caching of 
+results, and merging results with other data sources.
 * The local webpack server uses a proxy configuration, in proxy.conf.json, to route calls for /api to
 port 3000. In production the proxy is not necessary unless the API is running as
 a separate application
