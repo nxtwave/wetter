@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { WeatherRoutingModule } from './weather-routing.module';
-import { WeatherComponent } from './weather.component';
+import { WeatherReportComponent } from './weather-report/weather-report.component';
 import { WeatherService } from './shared/weather.service';
 import { IconComponent } from './icon/icon.component';
 
@@ -15,7 +15,7 @@ import { IconComponent } from './icon/icon.component';
     HttpClientModule,
     WeatherRoutingModule
   ],
-  declarations: [WeatherComponent, IconComponent],
+  declarations: [WeatherReportComponent, IconComponent],
   providers: [WeatherService]
 })
 export class WeatherModule { }
