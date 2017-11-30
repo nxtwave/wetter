@@ -1,3 +1,30 @@
-<p>
-  weather works!
-</p>
+<div class="container">
+
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="input-group">
+        <input #zipcode type="text" class="form-control"
+               placeholder="Search zipcode ..."
+               aria-label="Search for zipcode"
+               required>
+        <span class="input-group-btn">
+          <button class="btn btn-primary" type="button" (click)="search(zipcode.value)">Search</button>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: 50px">
+    <div class="col col-lg-6 col-sm-12">
+      <ul class="list-group" *ngIf="weather">
+        <li class="list-group-item">{{weather.city}}</li>
+        <li class="list-group-item">{{weather.lat}}, {{weather.lon}}</li>
+        <li class="list-group-item">{{weather.description}}</li>
+        <li class="list-group-item">{{weather.temperature}} F</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+
