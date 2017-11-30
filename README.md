@@ -70,3 +70,18 @@ of a multi-module application.
 * The application uses Bootstrap Version 4.
 * Bootstrap is installed using npm install, and it is configured into the 
 application through the cli.angular.json file.
+
+### Core Weather Module
+
+* The WeatherReport component injects the WeatherService for data retrieval.
+* The template contains a form and a presentation section. User enters a zipcode
+into the form input and clicks the search button.
+* The search method of the component calls the data service with the zipcode value.
+* The service calls the local proxy service passing the zipcode value.
+* The proxy service calls the Open Weather API and the results are returned to the
+Angular service which returns an Observable object to the component.
+* The component subscribes to the Observable, and when the results are returned,
+a presentation object is created from the service result, and the Angular template
+renders the result.
+* If the service does not return a result, the error property is updated, and the 
+template renders an error message.
